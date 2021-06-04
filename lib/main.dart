@@ -22,11 +22,17 @@ class HomePage extends StatelessWidget { //stl
         child: ListView(
           padding: EdgeInsets.zero,
           children:<Widget> [
-            DrawerHeader(child: Text(
-              "Hi I am drawer",
-            style:TextStyle(color: Colors.white),
-            ),
-            decoration: BoxDecoration(color: Colors.indigo),
+            // DrawerHeader(child: Text(
+            //   "Hi I am drawer",
+            // style:TextStyle(color: Colors.white),
+            // ),
+            // decoration: BoxDecoration(color: Colors.indigo),
+            //
+            // ),
+            UserAccountsDrawerHeader(accountName: Text("Nikhil Kumar"), accountEmail: Text("nikhilkumarnk2209@gmail.com"),
+            currentAccountPicture:Image.network(
+                  "https://drive.google.com/file/d/10195lDsU-_Y9RRR7tPJ_kSvoHy88z9pD/view?usp=sharing"
+              ),
 
             ),
             ListTile(
