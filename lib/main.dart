@@ -5,6 +5,9 @@ void main() {
   runApp(MaterialApp(
     title: "TestAPP",
     home: HomePage(),
+    theme: ThemeData(
+      primarySwatch: Colors.purple,
+    ),
   ));
 }
 class HomePage extends StatelessWidget { //stl
@@ -14,26 +17,42 @@ class HomePage extends StatelessWidget { //stl
       appBar: AppBar(
         title: Text("Awesome app"), //title of app
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,//use dots and view properties
-        children:<Widget> [
-        Container(
-        padding:const EdgeInsets.all(8) ,
-        width: 100,
-        height: 100,
-        color: Colors.red,),
-        Container(padding:const EdgeInsets.all(8) ,
-          width: 100,
-          height: 100,
-          color: Colors.yellow,),
-        Container(
-         padding:const EdgeInsets.all(8) ,
-         width: 100,
-         height: 100,
-         color: Colors.green,),
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children:<Widget> [
+            DrawerHeader(child: Text(
+              "Hi I am drawer",
+            style:TextStyle(color: Colors.white),
+            ),
+            decoration: BoxDecoration(color: Colors.indigo),
 
-      ],),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Account"),
+              subtitle: Text("Personal"),
+              trailing: Icon(Icons.edit),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_call),
+              title: Text("Contact us"),
+              subtitle: Text("We are there"),
+              trailing: Icon(Icons.add_call),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_location_alt),
+              title: Text("Reach us"),
+              subtitle: Text("Our Location"),
+              trailing: Icon(Icons.add_location_alt,
+            ),),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: (){},
+      child: Icon(Icons.edit),
+      ),
     );
   }
 }
