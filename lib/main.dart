@@ -10,14 +10,58 @@ void main() {
     ),
   ));
 }
-class HomePage extends StatelessWidget { //stl
+
+class HomePage extends StatefulWidget { //stl //stateless means no change
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  TextEditingController _nameController = TextEditingController();
+  var myText = "change me";
+  @override
+  void initState(){
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text("Awesome app"), //title of app
       ),
-      body: Container(),
+      body:Padding(
+        padding: const EdgeInsets.all(16.0),
+
+        child: SingleChildScrollView(
+          child: Card(
+          child: Column(
+            children:<Widget> [Image.asset(""
+                "assets/photo-1622796476782-35e5163bbd6f.jpg",
+            fit: BoxFit.cover,),
+              SizedBox(
+                height: 20,
+              ),
+            Text(myText,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.teal),),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                controller: _nameController,
+               // keyboardType: TextInputType.phone,
+               // obscureText: true,
+                decoration: InputDecoration(
+                  border:OutlineInputBorder(),
+                  hintText: "Enter something here",
+                  labelText: "Name",
+                ),
+              ),
+            )
+            ],
+
+          ),
+      ),
+        ),) ,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -56,8 +100,13 @@ class HomePage extends StatelessWidget { //stl
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){},
-      child: Icon(Icons.edit),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        myText = _nameController.text;
+        setState(() {
+
+        });
+      },
+      child: Icon(Icons.refresh),
       ),
     );
   }
